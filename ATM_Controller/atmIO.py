@@ -163,3 +163,17 @@ def display_account_content(account_content : Dict[str, int]) :
     #[TODO] add custom exception
     except Exception as e : 
         print("Invalid account contents form")
+
+
+if __name__ == '__main__' : 
+    PIN = read_Card()
+    assert(is_valid_PIN(PIN))
+    
+    #accounts = get_accounts_from_BANK_API_by_PIN(PIN : uuid)
+    accounts = ['000-00-000000','125-50-201695','10-1956-209195','waw-12-290512','']
+    display_accounts(accounts)
+    
+    account = get_selected_account()
+    assert(is_valid_account(account))
+    
+    display_account_content(accounts)
