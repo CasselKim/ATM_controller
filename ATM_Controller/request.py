@@ -10,7 +10,7 @@ Methods:
     check_valid_account(PIN : uuid4, account : str) -> bool
     check_valid_account_form(account : str) -> bool
     get_accounts(PIN : uuid4) -> LIST[str]
-    get_account_content(PIN : uuid4, account : str) -> Dict(str,int)
+    get_account_content(PIN : uuid4, account : str) -> Dict[str,int]
 
 Todo:    
     errors
@@ -101,7 +101,7 @@ def get_accounts(PIN : uuid4) -> List[str] :
     return test_input.split('\n')
     
     
-def get_account_content(PIN : uuid4, account : str) -> Dict(str,int) : 
+def get_account_content(PIN : uuid4, account : str) -> Dict[str,int] : 
     '''  
     get account list with PIN from BANK API
     ---
@@ -128,12 +128,12 @@ def get_account_content(PIN : uuid4, account : str) -> Dict(str,int) :
     with open('./test_account_contents.txt','r') as f : 
         test_input = f.read()
     contents = dict()
-    contents["balance"], contents["deposit"], contents["withdraw"] = test_input
+    contents["balance"], contents["deposit"], contents["withdraw"] = test_input.split(',')
     return contents
 
-
+# test case
 if __name__ == '__main__' : 
     PIN = "550e8400-e29b-41d4-a716-446655440000"
     account = "000-00-000000"
-    get_accounts(PIN)
-    get_account_content(PIN, account)
+    print(get_accounts(PIN))
+    print(get_account_content(PIN, account))
