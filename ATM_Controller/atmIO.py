@@ -5,17 +5,11 @@ this module is for communication with the ATM.
 
 Methods:
     read_Card() -> str
-    [Todo] is_valid_PIN(PIN : uuid4) -> bool
-    [Todo] is_valid_account_form(account : str) -> bool
-    [Todo] is_valid_account(account : str) -> bool
     display_accounts(accounts : List[str])
     get_selected_account() -> str
     display_account_content(account_content : Dict[str, int])
 
-Todo:   
-    every is_valid_* methods should be held in request.py.
-    they don't have to be checked twice at server and client
-    
+Todo:       
     errors
       - custom errors for this project
 '''
@@ -31,72 +25,13 @@ def read_Card() -> uuid4 :
     ---
     
     Note : 
-        This is just for the test, so replace f_read with ATM's card reader later. 
-        
+        This is just for the test.
+        So replace f_read with ATM's card reader later. 
     '''
     
     with open('./test_card_input.txt','r') as f : 
         test_input = f.read()
     return test_input
-
-def is_valid_PIN(PIN : uuid4) -> bool : 
-    
-    '''  
-    check valid PIN value
-    ---
-    
-    Args:
-        account : str
-        
-    Note : 
-        This is just for the test, so replace it with actual API request. 
-        
-    TODO : 
-        it sholud be relocated to request.py
-    '''
-    
-    return PIN == "550e8400-e29b-41d4-a716-446655440000"
-
-def is_valid_account_form(account : str) -> bool : 
-    
-    '''  
-    check valid account form with regex
-    ---
-    
-    Args:
-        account : str
-        
-    Note : 
-        This is just for the test, so it must be fit with actual account form. 
-        
-    TODO : 
-        it sholud be relocated to request.py
-    '''
-    
-    account_regex = re.compile('[0-9]{3}-[0-9]{2}-[0-9]{6}')
-    result = account_regex.match(account)
-    if result : 
-        return True
-    else : 
-        return False
-    
-def is_valid_account(account : str) -> bool : 
-    
-    '''  
-    check valid account value
-    ---
-    
-    Args:
-        account : str
-        
-    Note : 
-        This is just for the test, so replace it with actual API request. 
-        
-    TODO : 
-        it sholud be relocated to request.py
-    '''
-    
-    return account == "000-00-000000"
         
 def display_accounts(accounts : List[str]) : 
         
@@ -109,7 +44,8 @@ def display_accounts(accounts : List[str]) :
         accounts : List[str]
         
     Note : 
-        This is just for the test, so replace print with display on screen later. 
+        This is just for the test
+        So replace print with display on screen later. 
     '''
     
     for account in accounts : 
@@ -129,7 +65,8 @@ def get_selected_account() -> str :
     ---
     
     Note : 
-        This is just for the test, so replace f_read with user's screen touch later. 
+        This is just for the test
+        So replace f_read with user's screen touch later. 
         
     '''
     
@@ -152,7 +89,8 @@ def display_account_content(account_content : Dict[str, int]) :
         }
         
     Note : 
-        This is just for the test, so replace print with display on screen later. 
+        This is just for the test.
+        So replace print with display on screen later. 
         
     '''
     

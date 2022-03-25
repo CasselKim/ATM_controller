@@ -14,3 +14,80 @@ Todo:
     errors
       - custom errors for this project
 '''
+
+
+from typing import List, Dict, Any
+from uuid import uuid4
+import re
+
+def check_valid_PIN(PIN : uuid4) -> bool : 
+    '''
+    Send request to BANK API for check availability of card's PIN number.
+    ---
+    
+    Args:
+        PIN : uuid4
+        
+    Note:
+        Please note that this is not for the actual connection to BANK API untill the code test is over.
+        In order to connect real BANK API, Do edit this part.
+    '''
+
+    # make RESTFUL API for request availibility of PIN number to BANK API
+    url = "BANK_RESTFUL_API"
+    headers = "Headers"
+    params = {"PIN" : PIN}
+
+    # PIN number for test
+    if PIN == "550e8400-e29b-41d4-a716-446655440000" : 
+        return True
+    else : 
+        return False
+
+def check_valid_account(PIN : uuid4, account : str) -> bool : 
+    '''
+    Send request to BANK API for check availability of user's account.
+    ---
+    
+    Args:
+        PIN : uuid4
+        account : str (format : 000-00-000000)
+        
+    Note:
+        Please note that this is not for the actual connection to BANK API untill the code test is over.
+        In order to connect real BANK API, Do edit this part.
+    '''
+
+    # make RESTFUL API for request availibility of user's account to BANK API
+    url = "BANK_RESTFUL_API"
+    headers = "Headers"
+    params = {"PIN" : PIN, "Account" : account}
+
+    # Account for test
+    if PIN == "000-00-000000" : 
+        return True
+    else : 
+        return False
+    
+def check_valid_account_form(account : str) -> bool : 
+    '''  
+    check valid account form with regex
+    ---
+    
+    Args:
+        account : str
+        
+    Note : 
+        This is just for the test.
+        So it must be fit with actual account form. 
+        
+    TODO : 
+        it sholud be relocated to request.py
+    '''
+    
+    account_regex = re.compile('[0-9]{3}-[0-9]{2}-[0-9]{6}')
+    result = account_regex.match(account)
+    if result : 
+        return True
+    else : 
+        return False
