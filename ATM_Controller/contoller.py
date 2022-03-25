@@ -1,25 +1,26 @@
 '''
 Controller.py
 ===========
-
-제목을 정할 때는 기존과 같습니다. `==`로 제목을 `--`로 소제목을
-표현합니다. `참고해야 할 하이퍼링크`_ 가 있다면 아래에 url 정의를
-할 수 있습니다.
+this module provide exchange API of the BANK API.
 
 Attributes:
     Card
-      - PIN Number -> str (uuid)(not null)
+      - PIN Number -> str (uuid4)(not null)
       - Account_activate -> str (000-00-000000)
+      - PIN_available_check() -> bool
+      - Account_available_check() -> bool
       
 Example:
     card_obj = Card("550e8400-e29b-41d4-a716-446655440000")
     card_obj.Account_activate = "501-69-106992"
 
 Todo:
-    * 앞으로 할 것의 목록
-    * `Todo`는 모듈이나 패키지, 함수, 클래스 등에 자유롭게
-        사용할 수 있습니다.
-    * 사용자 입장에서 서술하는 것이 좋습니다.
+    method
+      - request to BANK API for get accounts
+      - request to get display blance, deposit and withdraw
+      
+    errors
+      - custom errors for this project
 '''
 
 from uuid import uuid4
