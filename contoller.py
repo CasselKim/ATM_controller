@@ -24,8 +24,8 @@ Todo:
 '''
 
 from uuid import uuid4
-from . import request
-from . import atmIO
+from ATM_Controller.request import *
+from ATM_Controller.atmIO import *
 
 class Card : 
     def __init__(self, PIN:uuid4):
@@ -41,31 +41,31 @@ if __name__ == '__main__' :
   
   while True : 
     # read card
-    PIN = atmIO.read_Card()
+    PIN = read_Card()
     
     # check valid PIN number
-    if request.check_valid_PIN(PIN) == True : 
+    if check_valid_PIN(PIN) == True : 
       # create Card object
       card = Card(PIN)
       break
     else : 
       # if invaild PIN number
-      atmIO.split_Card()
+      split_Card()
     
   # get accounts
-  accounts = request.get_accounts(card.PIN)
+  accounts = get_accounts(card.PIN)
   
   # display accounts list
-  atmIO.display_accounts(accounts)
+  display_accounts(accounts)
   
   # get selected account
-  account = atmIO.get_selected_account()
+  account = get_selected_account()
   card.Account_activate = account
   
   # check valid account
-  if request.check_valid_account(card.Account_activate)==True :
-    account_content = request.get_account_content(card.PIN, card.Account_activate)
-    atmIO.display_account_content(account_content)
+  if check_valid_account(card.Account_activate)==True :
+    account_content = get_account_content(card.PIN, card.Account_activate)
+    display_account_content(account_content)
   else : 
     # [TODO] replace with error handler
     print("cannot read account contents!!")

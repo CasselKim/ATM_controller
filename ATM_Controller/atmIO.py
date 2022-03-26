@@ -43,7 +43,7 @@ def read_Card() -> uuid4 :
         So replace f_read with ATM's card reader later. 
     '''
     
-    with open('./test_card_input.txt','r') as f : 
+    with open('test_inputs/test_card_input.txt','r') as f : 
         test_input = f.read()
     return test_input
         
@@ -84,7 +84,7 @@ def get_selected_account() -> str :
         
     '''
     
-    with open('./test_account_input.txt','r') as f : 
+    with open('test_inputs/test_account_input.txt','r') as f : 
         test_input = f.read()
     return test_input
     
