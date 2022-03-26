@@ -130,10 +130,3 @@ def get_account_content(PIN : uuid4, account : str) -> Dict[str,int] :
     contents = dict()
     contents["balance"], contents["deposit"], contents["withdraw"] = test_input.split(',')
     return contents
-
-# test case
-if __name__ == '__main__' : 
-    PIN = "550e8400-e29b-41d4-a716-446655440000"
-    account = "000-00-000000"
-    print(get_accounts(PIN))
-    print(get_account_content(PIN, account))
