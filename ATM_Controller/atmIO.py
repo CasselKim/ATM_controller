@@ -4,6 +4,7 @@ atmIO.py
 this module is for communication with the ATM.
 
 Methods:
+    split_Card() -> bool
     read_Card() -> str
     display_accounts(accounts : List[str])
     get_selected_account() -> str
@@ -17,6 +18,19 @@ Todo:
 from typing import List, Dict, Any
 from uuid import uuid4
 import re
+
+
+def split_Card() -> bool : 
+    
+    '''
+    split Card from ATM's card reader
+    ---
+    
+    Note : 
+        This is just for the test.
+        So replace splt_method with ATM's card reader later. 
+    '''
+    return True
 
 def read_Card() -> uuid4 : 
     
@@ -102,16 +116,3 @@ def display_account_content(account_content : Dict[str, int]) :
     except Exception as e : 
         print("Invalid account contents form")
 
-
-if __name__ == '__main__' : 
-    PIN = read_Card()
-    assert(is_valid_PIN(PIN))
-    
-    #accounts = get_accounts_from_BANK_API_by_PIN(PIN : uuid)
-    accounts = ['000-00-000000','125-50-201695','10-1956-209195','waw-12-290512','']
-    display_accounts(accounts)
-    
-    account = get_selected_account()
-    assert(is_valid_account(account))
-    
-    display_account_content(accounts)
