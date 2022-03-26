@@ -44,7 +44,7 @@ def read_Card() -> uuid4 :
     '''
     
     with open('test_inputs/test_card_input.txt','r') as f : 
-        test_input = f.read()
+        test_input = f.read().strip()
     return test_input
         
 def display_accounts(accounts : List[str]) : 
@@ -85,7 +85,7 @@ def get_selected_account() -> str :
     '''
     
     with open('test_inputs/test_account_input.txt','r') as f : 
-        test_input = f.read()
+        test_input = f.read().strip()
     return test_input
     
 def display_account_content(account_content : Dict[str, int]) : 

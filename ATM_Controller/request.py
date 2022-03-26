@@ -97,7 +97,7 @@ def get_accounts(PIN : uuid4) -> List[str] :
     
     # test input
     with open('test_inputs/test_accounts.txt','r') as f : 
-        test_input = f.read()
+        test_input = f.read().strip()
     return test_input.split('\n')
     
     
@@ -126,7 +126,7 @@ def get_account_content(PIN : uuid4, account : str) -> Dict[str,int] :
     
     # test input
     with open('test_inputs/test_account_contents.txt','r') as f : 
-        test_input = f.read()
+        test_input = f.read().strip()
     contents = dict()
     contents["balance"], contents["deposit"], contents["withdraw"] = test_input.split(',')
     return contents
