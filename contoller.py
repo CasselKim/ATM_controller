@@ -63,7 +63,7 @@ if __name__ == '__main__' :
   card.Account_activate = account
   
   # check valid account
-  if check_valid_account(card.Account_activate)==True :
+  if check_valid_account(card.PIN, card.Account_activate)==True :
     account_content = get_account_content(card.PIN, card.Account_activate)
     display_account_content(account_content)
   else : 
