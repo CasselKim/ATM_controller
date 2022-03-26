@@ -59,7 +59,7 @@ def check_valid_account(PIN : uuid4, account : str) -> bool :
     params = {"PIN" : PIN, "Account" : account}
 
     # Account for test
-    if PIN == "000-00-000000" : 
+    if PIN == "550e8400-e29b-41d4-a716-446655440000" and account == "000-00-000000" : 
         return True
     else : 
         return False
