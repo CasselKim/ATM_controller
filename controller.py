@@ -14,11 +14,7 @@ Example:
     card_obj = Card("550e8400-e29b-41d4-a716-446655440000")
     card_obj.Account_activate = "501-69-106992"
 
-Todo:
-    method
-      - request to BANK API for get accounts
-      - request to get display blance, deposit and withdraw
-      
+Todo :    
     errors
       - custom errors for this project
 '''
@@ -63,9 +59,6 @@ if __name__ == '__main__' :
   card.Account_activate = account
   
   # check valid account
-  if check_valid_account(card.PIN, card.Account_activate)==True :
-    account_content = get_account_content(card.PIN, card.Account_activate)
-    display_account_content(account_content)
-  else : 
-    # [TODO] replace with error handler
-    print("cannot read account contents!!")
+  check_valid_account(card.PIN, card.Account_activate)
+  account_content = get_account_content(card.PIN, card.Account_activate)
+  display_account_content(account_content)
