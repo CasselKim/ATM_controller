@@ -16,8 +16,15 @@ def error_handler(func: Callable):
     logger = logging.getLogger()
 
     def wrapper(*args: Any, **kwargs: Dict[str, Any]) :
-        result = func(*args, **kwargs) # execute wresult
-        if result == True : 
+        already = False
+        try : 
+            result = func(*args, **kwargs) # execute wresult
+        except Exception as e : 
+            logger.error(func.__name__+"({}) failed".format(*args)+" "+str(e)) # if 
+            result = False
+            already = True
+        
+        if result == False and already == False : 
             logger.error(func.__name__+"({}) failed".format(*args)) # write log
         return result
     
