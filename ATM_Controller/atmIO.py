@@ -9,10 +9,6 @@ Methods:
     display_accounts(accounts : List[str])
     get_selected_account() -> str
     display_account_content(account_content : Dict[str, int])
-
-Todo:       
-    errors
-      - custom errors for this project
 '''
 
 from typing import List, Dict, Any

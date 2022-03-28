@@ -11,10 +11,6 @@ Methods:
     check_valid_account_form(account : str) -> bool
     get_accounts(PIN : uuid4) -> LIST[str]
     get_account_content(PIN : uuid4, account : str) -> Dict[str,int]
-
-Todo:    
-    errors
-      - custom errors for this project
 '''
 
 from typing import List, Dict, Any
