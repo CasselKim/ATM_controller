@@ -28,6 +28,7 @@ def split_Card() -> bool :
         This is just for the test.
         So replace splt_method with ATM's card reader later. 
     '''
+    print("Please check your card")
     return True
 
 @error_handler
@@ -41,9 +42,9 @@ def read_Card() -> uuid4 :
         This is just for the test.
         So replace f_read with ATM's card reader later. 
     '''
-    
     with open('test_inputs/test_card_input.txt','r') as f : 
         test_input = f.read().strip()
+    print("\nRead Card...",test_input)
     return test_input
         
 def display_accounts(accounts : List[str]) : 
@@ -61,9 +62,11 @@ def display_accounts(accounts : List[str]) :
         So replace print with display on screen later. 
     '''
     
+    print("\n===account lists===")
     for account in accounts : 
         check_valid_account_form(account)
-        print(account) #display account list
+        print("-",account) #display account list
+    print("===================")
         
         
 @error_handler
@@ -81,6 +84,7 @@ def get_selected_account() -> str :
     
     with open('test_inputs/test_account_input.txt','r') as f : 
         test_input = f.read().strip()
+    print("Selected account : "+test_input)
     return test_input
     
 @error_handler
@@ -103,7 +107,8 @@ def display_account_content(account_content : Dict[str, int]) :
         So replace print with display on screen later. 
         
     '''
-    
+    print("\n===account state===")
     for key,value in account_content.items() : 
         print("{} : {}".format(key,value))
+    print("===================")
 

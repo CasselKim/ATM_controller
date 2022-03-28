@@ -96,6 +96,7 @@ def get_accounts(PIN : uuid4) -> List[str] :
     headers = "Headers"
     params = {"PIN" : PIN}
     
+    print("Get accounts from BANK server. Please wait...")
     # test input
     with open('test_inputs/test_accounts.txt','r') as f : 
         test_input = f.read().strip()
@@ -125,6 +126,7 @@ def get_account_content(PIN : uuid4, account : str) -> Dict[str,int] :
     headers = "Headers"
     params = {"PIN" : PIN, "account" : account}
     
+    print("Get accounts state from BANK server. Please wait...")
     # test input
     with open('test_inputs/test_account_contents.txt','r') as f : 
         test_input = f.read().strip()
