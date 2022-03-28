@@ -20,7 +20,9 @@ Todo:
 from typing import List, Dict, Any
 from uuid import uuid4
 import re
+from .errors import *
 
+@error_handler
 def check_valid_PIN(PIN : uuid4) -> bool : 
     '''
     Send request to BANK API for check availability of card's PIN number.
@@ -42,6 +44,7 @@ def check_valid_PIN(PIN : uuid4) -> bool :
     else : 
         return False
 
+@error_handler
 def check_valid_account(PIN : uuid4, account : str) -> bool : 
     '''
     Send request to BANK API for check availability of user's account.
@@ -64,6 +67,7 @@ def check_valid_account(PIN : uuid4, account : str) -> bool :
     else : 
         return False
     
+@error_handler
 def check_valid_account_form(account : str) -> bool : 
     '''  
     check valid account form with regex
@@ -81,6 +85,7 @@ def check_valid_account_form(account : str) -> bool :
     else : 
         return False
     
+@error_handler
 def get_accounts(PIN : uuid4) -> List[str] : 
     '''  
     get account list with PIN from BANK API
@@ -100,7 +105,7 @@ def get_accounts(PIN : uuid4) -> List[str] :
         test_input = f.read().strip()
     return test_input.split('\n')
     
-    
+@error_handler
 def get_account_content(PIN : uuid4, account : str) -> Dict[str,int] : 
     '''  
     get account list with PIN from BANK API

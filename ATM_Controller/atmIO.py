@@ -18,8 +18,10 @@ Todo:
 from typing import List, Dict, Any
 from uuid import uuid4
 import re
+from .errors import error_handler
+from .request import check_valid_account_form
 
-
+@error_handler
 def split_Card() -> bool : 
     
     '''
@@ -32,6 +34,7 @@ def split_Card() -> bool :
     '''
     return True
 
+@error_handler
 def read_Card() -> uuid4 : 
     
     '''
@@ -63,15 +66,11 @@ def display_accounts(accounts : List[str]) :
     '''
     
     for account in accounts : 
-        try : 
-            #[TODO] connect with error handling decorator
-            assert(is_valid_account_form(account))
-            print(account) #display account list
-            
-        except Exception as e : #[TODO] add custom exception
-            print("Invalid account Input")
-            continue
+        check_valid_account_form(account)
+        print(account) #display account list
         
+        
+@error_handler
 def get_selected_account() -> str : 
     
     '''
@@ -88,6 +87,7 @@ def get_selected_account() -> str :
         test_input = f.read().strip()
     return test_input
     
+@error_handler
 def display_account_content(account_content : Dict[str, int]) : 
     
     '''
@@ -108,11 +108,6 @@ def display_account_content(account_content : Dict[str, int]) :
         
     '''
     
-    try : 
-        for key,value in account_content.items() : 
-            print("{} : {}".format(key,value))
-            
-    #[TODO] add custom exception
-    except Exception as e : 
-        print("Invalid account contents form")
+    for key,value in account_content.items() : 
+        print("{} : {}".format(key,value))
 
